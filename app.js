@@ -2,6 +2,7 @@ const express = require('express')
 const userRouter = require('./router/user')
 const userinfoRouter = require('./router/userinfo')
 const articleCateRouter = require('./router/articleCate')
+const articleRouter = require('./router/article')
 const cors = require('cors')
 const app = express()
 const joi = require('joi')
@@ -36,6 +37,7 @@ app.use(
 app.use('/api', userRouter)
 app.use('/my', userinfoRouter)
 app.use('/my/article', articleCateRouter)
+app.use('/my/article', articleRouter)
 // 错误处理中间件
 app.use((err, req, res, next) => {
   if (err instanceof joi.ValidationError) {
